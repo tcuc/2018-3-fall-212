@@ -114,7 +114,7 @@ $ docker start ide50
 
 ### 4.1 New Interface
 
-You should now be staring at your brand new IDE. Click on `File`, then select, `New File`. Once you have your new file, you may start typing and wonder why there is no Syntax Highlighting. The way fix this is to save your file as a `.cpp` or `.cc` file. Save your new file now as, `hello.cc`. We assume you know how to save files.
+You should now be staring at your brand new IDE. Click on `File`, then select, `New File`. Once you have your new file, you may start typing and wonder why there is no Syntax Highlighting. The way fix this is to save your file as a `.cpp` or `.cc` file. Save your new file now as, `hello.cpp`. We assume you know how to save files.
 
 ### 4.2 Typing it out
 
@@ -143,12 +143,12 @@ Time to put the bash terminal to use. If you have never used a shell, or bash be
 $ ls
 ```
 
-You should see, `hello.cc` or whatever you named your file.
+You should see, `hello.cpp` or whatever you named your file.
 
 Next is to compile your program. We will use `g++`. Simply type this below:
 
 ```bash
-$ g++ hello.cc -g -o hello
+$ g++ hello.cpp -g -o hello
 ```
 
 `-g` tells the compiler to include debugging symbols which allow you to use breakpoints to debug your code
