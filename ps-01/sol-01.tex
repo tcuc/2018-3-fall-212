@@ -1,0 +1,265 @@
+\documentclass[11pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage[margin=.9in]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\linespread{1.3}
+\setlength{\parindent}{0pt}
+
+% ===========================================================================
+% Header / Footer
+% ===========================================================================
+\pagestyle{fancy}
+\lhead{\scriptsize  CSC 212: Data Structures and Abstractions - Fall 2018}\chead{}\rhead{\scriptsize Weekly Problem Set \#1}
+\lfoot{}\cfoot{\scriptsize \thepage~of~\pageref{r:lastpage}}\rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% ===========================================================================
+% ===========================================================================
+\begin{document}
+\thispagestyle{empty}
+
+% ===========================================================================
+\begin{center}
+    {\Large\bf CSC 212: Data Structures and Abstractions}\\
+    \medskip
+    {\Large\bf University of Rhode Island}\\
+    \bigskip
+    {\Large\bf Fall 2018}\\
+    \bigskip
+    {\Large\bf Weekly Problem Set \#1}
+\end{center}
+
+\vspace{25pt}
+
+This assignment is due Thursday 9/20 before lecture.  Please turn in neat, and organized, answers hand-written on standard-sized paper {\bf without any fringe}. The only library you're allowed to use in your answers is \verb|iostream|, though you can test with whatever you'd like. Problem set 1 is about strings, arrays, functions, and pointers, some of the most fundamental concepts in C/C++ programming.
+
+\begin{enumerate}[leftmargin=*]
+
+\item Provide a sequence of Bash commands that will:
+    \begin{itemize}
+        \item go to your default home directory;
+        \item create a directory test;
+        \item rename test to myproject;
+        \item enter the directory myproject;
+        \item create a new empty file main.c;
+        \item list all files in myproject, including hidden files;
+        \item return to the parent directory.
+    \end{itemize}
+
+Solution:
+\begin{verbatim}
+cd
+mkdir test
+mv test myproject
+cd myproject
+touch main.c
+ls -a
+cd ..
+\end{verbatim}
+\item Provide a sequence of Bash commands that will:
+    \begin{itemize}
+        \item create files a.txt, b.txt, and c.txt;
+        \item write the line a: 1 2 3 4 5 to a.txt;
+        \item write the line b: 6 7 8 9 10 to b.txt;
+        \item write the line a: 11 12 13 14 15 to c.txt;
+        \item concatenate a.txt, b.txt, and c.txt into all.txt.
+    \end{itemize}
+
+Solution:
+\begin{verbatim}
+touch a.txt b.txt c.txt
+echo "1 2 3 4 5" >> a.txt
+echo "6 7 8 9 10" >> b.txt
+echo "11 12 13 14 15" >> c.txt
+cat a.txt b.txt c.txt > all.txt
+\end{verbatim}
+% 1
+\item Write a function that returns the length of a given string. For example, given \verb|"Test"|, return \verb|4|.
+
+Solution:
+\begin{verbatim}
+unsigned length(char* input)
+{
+    unsigned length = 0;
+    while(*input)
+    {
+        input++;
+        length++;
+    }
+    return length;
+}
+\end{verbatim}
+
+% GeeksForGeeks
+\item Write a function that returns the number of words in a given string.  Words are always separated by whitespace or tab characters.
+
+Solution:
+\begin{verbatim}
+unsigned wordNum(char* input)
+{
+    unsigned wordNum = 0;
+    bool isWord = false;
+    while(*input)
+    {
+        if(isWord)
+        {
+            if(*input == 32 || *input == 9)
+            {
+                isWord = false;
+                wordNum++;
+            }
+        }
+        else
+        {
+            if(*input != 32 && *input != 9)
+                isWord = true;
+        }
+        input++;
+    }
+    if(isWord)
+        wordNum++;
+    return wordNum;
+}
+\end{verbatim}
+
+% CodeForWin
+\item Write a function that returns a missing number in an array of integers ranging from 1 to $n$. For example, given $[3, 2, 1, 5]$ and $n=5$, output \verb|4|.
+
+Solution:
+\begin{verbatim}
+unsigned missing(unsigned* input, unsigned n)
+{
+    unsigned sum = 0;
+    for(unsigned i = 0; i < n-1; i++)
+    {
+        sum += input[i];
+    }
+    return n*(n+1)/2 - sum;
+}
+\end{verbatim}
+
+% CodeForWin
+\item Define a function that returns the average of the minimum and maximum elements in an unsorted array of integers when given the array and the number of elements. How would this code change if the input array is sorted?
+
+Solution:
+\begin{verbatim}
+unsigned average(unsigned* input, unsigned count)
+{
+    unsigned min = input[0];
+    unsigned max = input[0]
+    for(unsigned i = 1; i < count; i++)
+    {
+        if(input[i] < min) min = input[i];
+        if(input[i] > max) max = input[i];
+    }
+    return (min+max)/2;
+}
+
+unsigned averageSorted(unsigned* input, unsigned count)
+{
+    return (input[0]+input[count-1])/2;
+}
+\end{verbatim}
+
+\item Draw the array represented by \verb|int arr[5];| use null to denote uninitialized memory.
+
+Solution: (elements separated by commas)
+
+NULL, NULL, NULL, NULL, NULL
+
+\item Now redraw the array after this code executes:
+\begin{verbatim}
+    *arr = 1;
+    *(arr+2) = 5;
+\end{verbatim}
+
+Solution:
+
+1, NULL, 5, NULL, NULL
+
+\item Define a void function that takes a pointer to an integer variable as a parameter, and increments its value by 10. (hint: void functions return type is void)
+
+Solution:
+\begin{verbatim}
+void add10(int* input)
+{
+    *input += 10;
+}
+\end{verbatim}
+
+\item What is the output of the following code? If it breaks at any point, indicate what went wrong.
+\begin{verbatim}
+    #include <iostream>
+
+    int mystery(int x, int *y) {
+        x = x + 10;
+        *y = x * 2;
+        return x;
+    }
+
+    int* mystery2() {
+        int x = 50;
+        return &x;
+    }
+
+    int main() {
+        int x = 2, y = 3;
+        x = mystery(x, &y);
+        std::cout << "(x, y): (" << x << ", " << y << ")" << std::endl;
+        int *z = mystery2();
+        std::cout << "z: " << *z << std::endl;
+    }
+\end{verbatim}
+
+Solution:
+
+x = 12
+
+y = 24
+
+z causes segfault since it is the address of a deallocated local variable
+
+% CodeForWin
+\item Write a program that removes any duplicate integers from an input array and prints the resulting array. The function should also take the number of elements as a parameter. For example, given $[1, 2, 2, 3, 4, 2, 5]$ and $7$, the program should print $[1, 2, 3, 4, 5]$.
+
+Solution:
+
+\begin{verbatim}
+void noRepeats(unsigned* input, unsigned count)
+{
+    //write stores the index where the next non-repeating element should be written
+    unsigned write = 0;
+    for(unsigned i = 0; i < count; i++)
+    {
+        bool repeat = false;
+        for(unsigned j = 0; j < i; j++)
+        {
+            if(input[i] == input[j])
+            {
+                write--;
+                repeat = true;
+                break;
+            }
+        }
+        if(!repeat)
+            input[write] = input[i];
+        write++;
+    }
+    std::cout << "[" << input[0];
+    for(unsigned i = 1; i < write; i++)
+    {
+        std::cout << ", " << input[i];
+    }
+    std::cout << "]" << std::endl;
+}
+\end{verbatim}
+
+\end{enumerate}
+
+\label{r:lastpage}
+
+\end{document}
