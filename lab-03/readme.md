@@ -28,7 +28,7 @@ Once you have implemented all three algorithms you can use the other functions i
 
 ## The Starter Code
 
-The starter code for this lab is available in the link `lab3.cc` above. This code contains two functions you will use: `gen_rand_list` and `delete_list`, and three you will implement: `num_in_array`, `sum2_in_array`, and `sum3_in_array`. 
+The starter code for this lab is available in the link `lab3.cpp` above. This code contains two functions you will use: `gen_rand_list` and `delete_list`, and three you will implement: `num_in_array`, `sum2_in_array`, and `sum3_in_array`. 
 
 > `num_in_array`: Determine whether or not a given number `num` is in a list of numbers `arr`
 
