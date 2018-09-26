@@ -42,9 +42,11 @@ The three functions you will implement need not actually be called directly, as 
 
 Ensure that your terminal is in the same directory as the .cpp files and then compile your program using the command:   
 
-        g++ -g -std=c++11 name_of_file.cpp -o name_of_file
+```bash
+g++ -g -std=c++11 name_of_file.cpp -o name_of_file
+```
 
-*Replace `name_of_file` with the name of the file you are trying to compile* 
+>Replace `name_of_file` with the name of the file you are trying to compile
 
 Also notice the -std=c++11 flag. This is needed because this lab's code uses some features that are only available in C++11, such as the `<chrono>` library and the `auto` specifier.
  
