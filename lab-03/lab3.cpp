@@ -15,14 +15,12 @@ bool sum2_in_array(const int* arr, int len, int num) {
     return false;
 }
 
-// The fastest maximum subarray sum algorithm. Runs in O(n) time.
 bool sum3_in_array(const int* arr, int len, int num) {
     return false;
 }
 
 // Generate an array of random integers. The range is +/- the size of the array
 int* gen_rand_list(int size) {
-
     std::random_device sd;
     std::mt19937 generator(sd());
     std::uniform_int_distribution<int> distribution(-size,size);
@@ -46,8 +44,7 @@ int check_time(t_p start_time) {
 }
 
 int main() {
-
-    /* Creates an array containing the Maximum Subarray Sum functions
+    /* Creates an array of pointer to functions
      *
      * To call a function from this array, use the following line:
      *
@@ -61,16 +58,20 @@ int main() {
      * This can be used to benchmark the different implementations without having to
      * repeat code.
      */
-    typedef int (*sum_fn)(const int*, int);
+    typedef bool (*sum_fn)(const int*, int, int);
     sum_fn functions[] = {num_in_array, sum2_in_array, sum3_in_array};
 
     /* Example usage */
-    int arr[3] = {1, 2, 3};
+    // create a list of 20 random numbers (allocate the array dynamically in the heap) 
+    int *arr = gen_rand_list(20);
+    // apply the three functions to the array with lenght=20 and num=15
     for (int i = 0; i < 3; i++) {
-        functions[i](arr, 3, 3);
+        functions[i](arr, 20, 15);
     }
+    delete_list(arr);
 
     /* Student code starts here */
-
+    // TODO
+    
     return 0;
 }
