@@ -38,19 +38,6 @@ The starter code for this lab is available in the link `lab3.cpp` above. This co
 
 The three functions you will implement need not actually be called directly, as the starter code contains a way to call each function from a function array, but you may use each function explicitly instead if you wish. They each take an integer array, its length, and a number `num` as parameters, and return `true` if the condition is met, and `false` otherwise. To generate randomized arrays for the algorithms to work with you can use `gen_rand_list`, which takes the length of the array as a parameter and returns a pointer to a randomized integer array. These arrays are allocated on the heap, so use either `delete_list` or the `delete` keyword to free the memory when you're done with them. 
 
-## Requirements
-
-For successful completion of this lab, you must print to the console a table of running times for each of the sum algorithms, given different input sizes. The input sizes you should use for this lab are 10, 100, 1000, and 10000. These should be printed across the top of the table, and the algorithms should be printed along the left side (you may simply use "A1, A2 and A3" in place of "num_in_array, sum2_in_array, and sum3_in_array" respectively). To ensure that you print the columns out evenly, you may use `std::cout.precision(x)` to set the number of digits after the decimal to be printed, and `std::cout << std::fixed` to print the results in regular decimal format instead of scientific. The output to your program should look something like this:
-
-```
-    10         100        1000       10000      
-A1  0.0000284  0.0037321  0.5383260  N/A
-A2  0.0000117  0.0001362  0.0017957  0.1353368
-A3  0.0000039  0.0000063  0.0000117  0.0001200
-```
-
-**Your submissions** to the Google Form will be your `main` function (along with any other helper function(s) you may define) for the first field, and the output of your code for the second field. If you do not finish, submit the code that you did write along with whatever output you may have, or "No output" if none.
-
 ## Compiling
 
 Ensure that your terminal is in the same directory as the .cpp files and then compile your program using the command:   
@@ -66,6 +53,17 @@ The program should compile without errors.
 This program takes no arguments so the command is `./name_of_file`
 
 > Make sure your program runs without errors before proceeding.
+
+## Running Times
+
+For successful completion of this lab, you must print to the console a table of running times for each of the algorithms, given different input sizes. The input sizes you should use for this lab are 10, 100, 1000, and 10000. These should be printed across the top of the table, and the algorithms should be printed along the left side (you may simply use "A1, A2 and A3" in place of "num_in_array, sum2_in_array, and sum3_in_array" respectively). To ensure that you print the columns out evenly, you may use `std::cout.precision(x)` to set the number of digits after the decimal to be printed, and `std::cout << std::fixed` to print the results in regular decimal format instead of scientific. The output to your program should look something like this:
+
+```
+    10         100        1000       10000      
+A1  0.0000284  0.0037321  0.5383260  N/A
+A2  0.0000117  0.0001362  0.0017957  0.1353368
+A3  0.0000039  0.0000063  0.0000117  0.0001200
+```
 
 ## Benchmarking
 
@@ -91,4 +89,4 @@ int main() {
 }
 ```
 
-Note that for this lab's starter code, each implementation of maximum subarray sum will stop running if it runs for longer than one minute, and will return `-1` instead of the actual answer. In the case where the algorithm is running for too long, `N/A` should be used as a placeholder in the output since the algorithm did not actually complete.
+> Note that for this lab's starter code, each function you implement will stop running if it runs for longer than one minute, and will return `-1` instead of the actual answer. In the case where the algorithm is running for too long, `N/A` should be used as a placeholder in the output since the algorithm did not actually complete.
