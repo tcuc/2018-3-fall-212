@@ -1,4 +1,4 @@
-# Lab 03: Pointers->get_excited()
+# Lab 02: Pointers->get_excited()
 
 In this lab you will use `debug50` to understand how pointers work when working with arrays.  It is particularly important that you have a good handle on pointers and how they work since nearly all of the data structures that we will be creating use pointers.
 
