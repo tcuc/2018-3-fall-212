@@ -3,10 +3,6 @@
 #include <random>
 #include <cmath>
 
-#define t_p std::chrono::time_point<std::chrono::steady_clock>
-
-int check_time(t_p start_time);
-
 bool num_in_array(const int* arr, int len, int num) {
     return false;
 }
