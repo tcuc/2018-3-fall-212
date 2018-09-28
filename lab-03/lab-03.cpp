@@ -36,13 +36,6 @@ void delete_list(int* arr) {
     delete [] arr;
 }
 
-// Auxiliary function to keep the program from running too long
-int check_time(t_p start_time) {
-    auto curr_time = std::chrono::steady_clock::now();
-    double t = std::chrono::duration<double> (curr_time - start_time).count();
-    return (t > 60) ? 1 : 0;
-}
-
 int main() {
     /* Creates an array of pointer to functions
      *
