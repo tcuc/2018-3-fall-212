@@ -3,10 +3,6 @@
 #include <random>
 #include <cmath>
 
-#define t_p std::chrono::time_point<std::chrono::steady_clock>
-
-int check_time(t_p start_time);
-
 bool num_in_array(const int* arr, int len, int num) {
     return false;
 }
@@ -36,13 +32,6 @@ void delete_list(int* arr) {
     delete [] arr;
 }
 
-// Auxiliary function to keep the program from running too long
-int check_time(t_p start_time) {
-    auto curr_time = std::chrono::steady_clock::now();
-    double t = std::chrono::duration<double> (curr_time - start_time).count();
-    return (t > 60) ? 1 : 0;
-}
-
 int main() {
     /* Creates an array of pointer to functions
      *
@@ -61,7 +50,9 @@ int main() {
     typedef bool (*sum_fn)(const int*, int, int);
     sum_fn functions[] = {num_in_array, sum2_in_array, sum3_in_array};
 
-    /* Example usage */
+    //
+    // Example usage: this shows how to call the three functions applied to the same random sequence
+    //
     // create a list of 20 random numbers (allocate the array dynamically in the heap) 
     int *arr = gen_rand_list(20);
     // apply the three functions to the array with lenght=20 and num=15
@@ -70,8 +61,16 @@ int main() {
     }
     delete_list(arr);
 
-    /* Student code starts here */
+    // Student code starts here
     // TODO
+    // you can use/modify the example above to print the table with running times
+    
+    // the following lines can be used to capture the runtime
+    // auto start = std::chrono::steady_clock::now();
+    // call your function here
+    // auto end = std::chrono::steady_clock::now();
+    // the following line can be used to calculate the difference (runtime)
+    // double t = std::chrono::duration<double> (end - start).count();
     
     return 0;
 }

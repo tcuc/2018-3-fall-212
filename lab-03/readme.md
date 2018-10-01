@@ -93,7 +93,7 @@ A2  0.0000117  0.0001362  0.0017957  0.1353368
 A3  0.0000039  0.0000063  0.0000117  0.0001200
 ```
 
-> if you want to get more precise values in this table, each running time can be the average of 10 different runs
+> if you want to get more precise values in this table, you can find a way to always trigger the worst-case (for example, a number that is not in the list).  Additionally, each running time can be the average of 10 different runs.
 
 ## Submission
 
