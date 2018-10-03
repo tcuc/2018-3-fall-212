@@ -31,7 +31,7 @@ Don't worry about writing the generator functions for these input types, they wi
 
 ## Instructions
 
-  1. Review the [slides](https://homepage.cs.uri.edu/~malvarez/teaching/212-fa18/files/sorts.key.pdf) on the course website regarding insertion and selection sort
+  1. Discuss a plan for implementing insertion and selection sort with your group. You **may not** use the slides or any online resources to guide your implementation, but instead should come up with the algorithms on your own based on your high level understanding of how insertion and selection sort work.
   2. Implement insertion sort
   3. Test to make sure the code compiles and insertion sort works correctly
   4. Implement selection sort
