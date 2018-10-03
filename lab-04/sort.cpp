@@ -103,7 +103,7 @@ void delete_list(int *arr){
 }
 
 // this function formats and prints your benchmarking data
-void print_table(char input_size_s[][30], double times[][4]){
+void print_table(char names[][30], double times[][4]){
     // printing the input sizes with formatting.
     std::cout << "    ";
     // this counter keeps track of the total width of the table
@@ -112,8 +112,8 @@ void print_table(char input_size_s[][30], double times[][4]){
         int width = 0;
         // these two loops ensure the length of each column is 10 characters,
         // first printing the input size, then whitespace.
-        while (input_size_s[i][width] != '\0') {
-            std::cout << input_size_s[i][width];
+        while (names[i][width] != '\0') {
+            std::cout << names[i][width];
             width++;
             total_width++;
         }
@@ -180,14 +180,14 @@ int main() {
 
 
     // The numbers stored here decide the size n of the randomly generated arrays you will use
-    int input_sizes[4] = {5000, 5000, 5000, 5000};
-    char input_size_s[4][30] = {"Random", "Sorted", "Reversed", "Partially"}; // For printing table.
+    int input_size = 5000;
+    char names[4][30] = {"Random", "Sorted", "Reversed", "Partially"}; // For printing table.
 
-    // Fills lists[] with the four array types in the order specified by input_size_s above.
+    // Fills lists[] with the four array types in the order specified by `names` above.
     typedef int *(*gen)(int);
     gen listmake[] = {gen_list_unsorted, gen_list_sorted, gen_list_reversed,gen_list_partial_sorted};
     for(int i = 0; i < 4; i++) {
-        lists[i] = listmake[i](input_sizes[i]);
+        lists[i] = listmake[i](input_size);
     }
 
     // Sorting and benchmarking
@@ -218,10 +218,10 @@ int main() {
     // cpp_sort
     for (int j = 0; j < 4; j++) {
         // make a copy of the array
-        int *copy = copy_array(lists[j], input_sizes[j]);
+        int *copy = copy_array(lists[j], input_size);
         // save the time of the sorting algorithm applied to the copy
         auto start = std::chrono::steady_clock::now();
-        cpp_sort(copy, input_sizes[j]);
+        cpp_sort(copy, input_size);
         auto end = std::chrono::steady_clock::now();
         // record the time in the matrix
         times[i][j] = std::chrono::duration<double> (end - start).count();
@@ -230,7 +230,7 @@ int main() {
     }
 
     // prints output table to console
-    print_table(input_size_s, times);
+    print_table(names, times);
 
 
     // deallocates dynamic arrays in lists[]
