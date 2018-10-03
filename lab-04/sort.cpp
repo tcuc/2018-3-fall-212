@@ -97,11 +97,6 @@ int *copy_array(int *arr, int len) {
     return copy;
 }
 
-// deletes dynamically allocated arrays
-void delete_list(int *arr){
-    delete [] arr;
-}
-
 // this function formats and prints your benchmarking data
 void print_table(char names[][30], double times[][4]){
     // printing the input sizes with formatting.
@@ -235,7 +230,7 @@ int main() {
 
     // deallocates dynamic arrays in lists[]
     for (int i = 0; i < 4; i++) {
-        delete_list(lists[i]);
+        delete [] lists[i];
     }
 
     return 0;
