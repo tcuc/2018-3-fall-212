@@ -6,6 +6,8 @@ Out of order!
 ```
 ## Introduction
 
+> For this lab you will form groups of at least 2 and no more than 5 members.
+
 To become more familiar with the concept of benchmarking programs and its practical application, this week you are going to be testing some algorithms you write yourselves. You will be implementing the Insertion and Selection sort algorithms you learned about in class and benchmarking them against the standard C++ library sorting algorithm.
 
 Things to note about this lab:
@@ -53,9 +55,11 @@ Don't worry about writing the generator functions for these input types, they wi
 
 ## Submission
 
-You will submit 2 files named `lab-04.txt` and `lab-04.cpp` on Gradescope. Please ensure your files contain the following:
+Each group will submit 2 files named `lab-04.txt` and `lab-04.cpp` on Gradescope. Please ensure your files contain the following:
 
 1. `lab-04.cpp` should contain your entire source code
 2. `lab-04.txt` should contain your answers to the questions above including your sort implementations and formated benchmarking data. 
 
 If you are unable to complete the entire lab, submit your `lab-04.cpp`, and submit the answers of questions pertaining to the sections you completed along with a summary of the difficulties you encountered during this lab in your `lab-04.txt`.
+
+> Make sure you add all group members to your submission on Gradescope
