@@ -31,11 +31,11 @@ Don't worry about writing the generator functions for these input types, they wi
 
 ## The Algorithms
 
-In case you need a reminder of how insertion sort and selection sort work ...
+In case you need a reminder of how increasing order insertion sort and selection sort work ...
 
-**Insertion sort** scans through the array from left to right. At each iteration, each element is moved backwards until the array up to the starting point of the iteration is sorted.
+**Insertion sort** At each iteration, the leftmost element which hasn't already been sorted is chosen. This chosen element is compared to the elements on its left, if the element on the left is smaller than it, then the two swap places so that the smaller element moves leftward where it should be in a properly sorted array. This process of comparing and swapping continues until either the chosen element encounters another element which is smaller than or equal to itself, or the beginning of the array has been reached. Once this happens then the current chosen element is considered to be sorted. This procedure repeats itself until all elements have been "chosen" and moved into a position where the element on their left is smaller than or equal to themselves. Once this had been done, the process concludes.
 
-**Selection sort** also scans through the array from left to right. At each iteration the lowest element that has not yet been seen is found and swapped to the starting point of the iteration, such that the array up to that point must be sorted.
+**Selection sort** At the start of each iteration, the leftmost unsorted element is designated as the current min. Next, all elements to the right of the current min are scanned, if any element smaller than the current min is detected, then that element is the new current min and the scan continues until the end of the array is reached. At this point, the smallest unsorted element should be designated as the current min. That current min element is swapped with the leftmost unsorted element and is now considered sorted. The process now starts again excluding any elements which have already been sorted. Once there are no more unsorted elements, the process concludes.
 
 ## Instructions
 
