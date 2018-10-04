@@ -31,7 +31,7 @@ Don't worry about writing the generator functions for these input types, they wi
 
 ## The Algorithms
 
-In case you need a reminder of how insertion sort and selection sort work...
+In case you need a reminder of how insertion sort and selection sort work ...
 
 **Insertion sort** scans through the array from left to right. At each iteration, each element is moved backwards until the array up to the starting point of the iteration is sorted.
 
@@ -39,7 +39,7 @@ In case you need a reminder of how insertion sort and selection sort work...
 
 ## Instructions
 
-  1. Discuss a plan for implementing insertion and selection sort with your group. You **may not** use the slides or any online resources to guide your implementation, but instead should come up with the algorithms on your own based on your high level understanding of how insertion and selection sort work.
+  1. Discuss a plan for implementing insertion and selection sort with your group. You **may not** use the slides or any online resources to guide your implementation, but instead should come up with the algorithms on your own based on your understanding of how insertion and selection sort work
   2. Implement insertion sort
   3. Test to make sure the code compiles and insertion sort works correctly
   4. Implement selection sort
