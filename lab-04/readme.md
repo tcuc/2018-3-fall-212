@@ -29,14 +29,6 @@ Generally, these different scenarios will be referred to as **best case**, **ave
 
 Don't worry about writing the generator functions for these input types, they will be provided for you in `lab-04.cpp`.
 
-## The Algorithms
-
-In case you need a reminder of how increasing order insertion sort and selection sort work ...
-
-**Insertion sort** At each iteration, the leftmost element which hasn't already been sorted is chosen. This chosen element is compared to the elements on its left, if the element on the left is smaller than it, then the two swap places so that the smaller element moves leftward where it should be in a properly sorted array. This process of comparing and swapping continues until either the chosen element encounters another element which is smaller than or equal to itself, or the beginning of the array has been reached. Once this happens then the current chosen element is considered to be sorted. This procedure repeats itself until all elements have been "chosen" and moved into a position where the element on their left is smaller than or equal to themselves. Once this had been done, the process concludes.
-
-**Selection sort** At the start of each iteration, the leftmost unsorted element is designated as the current min. Next, all elements to the right of the current min are scanned, if any element smaller than the current min is detected, then that element is the new current min and the scan continues until the end of the array is reached. At this point, the smallest unsorted element should be designated as the current min. That current min element is swapped with the leftmost unsorted element and is now considered sorted. The process now starts again excluding any elements which have already been sorted. Once there are no more unsorted elements, the process concludes.
-
 ## Instructions
 
   1. Discuss a plan for implementing insertion and selection sort with your group. You **may not** use the slides or any online resources to guide your implementation, but instead should come up with the algorithms on your own based on your understanding of how insertion and selection sort work
