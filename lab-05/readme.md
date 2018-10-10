@@ -1,6 +1,6 @@
 # Lab 05: Recursive Backtracking
 
-Today you will be implementing a few recursive algorithms. The neat thing about recursion is that you can solve problems with a relatively small amount of well thought out code.
+Today you will be implementing two recursive algorithms. The neat thing about recursion is that you can solve problems with a relatively small amount of well thought out code.
 
 > For this lab you will form groups of at least 2 and no more than 5 members.
 
