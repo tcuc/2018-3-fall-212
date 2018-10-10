@@ -40,13 +40,13 @@ $ g++ -g -Wall gcd.cc -o gcd && ./gcd
 > The **&&** here symbolizes "do what's on the left of me, then if that's successful, do what's on the right" -- Learning bash can make development a much easier process!
 
 
-### Backtracking
+## 2. Backtracking
 
 One of the most useful implementations of recursion is in an algorithm utilizing backtracking. A backtracking algorithm solves problems in much the same way that you would solve a cornmaze. When you want to escape a cornmaze, you try one path until either it leads you out of the maze or you hit a dead end and declare this path a failure. Once this path is considered a failure, you *backtrack*, abandoning this path and returning to the last fork in the maze and try another path. Eventually you will either escape the maze or you will have tried all possible paths and will declare it unsolvable. 
 
 In a very similar manner, a backtracking algorithm incrementally builds candidate solutions (you walk along paths one step at a time) to solve problems (escape the maze), and abandons candidates once it determines that it cannot possibly lead to a valid solution (you hit a dead end which is not the exit). It will then test another candidate solution until all candidates have been exhausted or the problem has been solved and satisfies the required criteria.
 
-## 2. N-Queens
+### N-Queens
 
 For the remainder of the lab, you will be working with your teams to solve the N-Queens puzzle. The N-Queens puzzle is the problem of placing N chess queens on an NxN chessboard in such a way that no two queens can attack each other. This problem is an excellent example of a backtracking algorithm. 
 
