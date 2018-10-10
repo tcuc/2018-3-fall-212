@@ -78,7 +78,7 @@ in column order of left to right. The inside of the recursive solve function wil
     3. If all rows have been tried by the else statement and none returned true, return false, there is no solution
 
 
-## 4. Submission
+## 3. Submission
 
 Each group will submit 3 files named `gcd.cpp`, `gcd.txt` and `queens.cpp` on Gradescope. Please ensure your files contain the following:
 
