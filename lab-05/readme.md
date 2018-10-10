@@ -4,13 +4,13 @@ Today you will be implementing a few recursive algorithms. The neat thing about 
 
 > For this lab you will form groups of at least 2 and no more than 5 members.
 
-## A Quick Review of Recursion
+## 1. A Quick Review of Recursion
 
 In its simplest form, recursion is just the act of a function calling itself within its own body. Recursion essentially breaks the problem apart into smaller, more easily solvable pieces, which can lead to some very elegant and important algorithms. When a recursive function is called by a function other than itself it begins execution, just like any other function. However, when the program reaches the line in which the function calls itself a new "instance" of the function is created, hopefully with a slightly different set of parameters (otherwise it may recurse forever!). This new instance will likely reach a point where it calls itself again, creating yet another new instance with, again, slightly different parameters; this process repeats until the *base case* is reached.
 
 At first, this may seem like an infinite loop of sorts, but if the function is implemented correctly, the input size should get reduced on each call, as the function works towards solving the problem. Eventually the function will reduce its parameters enough to handle the input non-recursively, and then return to whatever instance of the function last called it. From there each previous function will return (perhaps after doing some processing) until the original call returns and the recursive function has completed. Unfortunately, if the function is implemented without a base case, or continually recurses without reaching one, the program will crash with a stack overflow error.
 
-## 1. Greatest Common Divisor
+### Example: Greatest Common Divisor
 
 The Euclidean algorithm is a computationally efficient way to find the greatest common divisor between any two numbers.
 The greatest common divisor of _a_ and _b_ is the largest number that will divide evenly into both _a_ and _b_.
