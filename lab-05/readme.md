@@ -1,4 +1,4 @@
-# Lab 05: Lab + Recursion(5) = Lab + (Lab + Recursion(4))
+# Lab 05: Recursive Backtracking
 
 Today you will be implementing a few recursive algorithms. The neat thing about recursion is that you can solve problems with a relatively small amount of well thought out code.
 
