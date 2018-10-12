@@ -35,7 +35,7 @@ From this you can see that recursion is fundamental to the problem, as the GCD a
 
 You can compile and run your program using the command below:
 ```bash
-$ g++ -g -Wall gcd.cc -o gcd && ./gcd
+$ g++ -g -Wall -std=c++11 gcd.cpp -o gcd && ./gcd
 ```
 > The **&&** here symbolizes "do what's on the left of me, then if that's successful, do what's on the right" -- Learning bash can make development a much easier process!
 
@@ -53,6 +53,8 @@ For the remainder of the lab, you will be working with your teams to solve the N
 > You can play with an 8x8 board [here](http://www.hbmeyer.de/backtrack/achtdamen/eight.htm).
 
 ### The Algorithm
+
+> **You can find starter code for this problem (named queens.cpp) in the lab-05 folder**
 
 > A visualization of a possible algorithm is [here](https://www.cs.usfca.edu/~galles/visualization/RecQueens.html).
 
@@ -76,7 +78,6 @@ in column order of left to right. The inside of the recursive solve function wil
         backtrack. Change the current queen from a 1 to a 0 because it doesn't lead to a correct solution and continue 
         the search for safe rows for the current queen by returning to step 2 and searching the rest of the rows.
     3. If all rows have been tried by the else statement and none returned true, return false, there is no solution
-
 
 ## 3. Submission
 
