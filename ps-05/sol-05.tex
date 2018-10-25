@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+
+    \usepackage{listings}
+    \usepackage{fancyhdr}
+    \usepackage[margin=.8in]{geometry}
+    \usepackage{amsmath}
+    \usepackage{enumitem}
+    \usepackage{hyperref}
+    
+    \linespread{1.2}
+    \setlength{\parindent}{0pt}
+    \setlength{\tabcolsep}{15pt}
+    
+    % ===========================================================================
+    % Header / Footer
+    % ===========================================================================
+    
+    \pagestyle{fancy}
+    \lhead{\scriptsize  CSC 212: Data Structures and Abstractions - Fall 2018}\chead{}\rhead{\scriptsize Weekly Problem Set Solutions \#5}
+    \lfoot{}\cfoot{\scriptsize \thepage~of~\pageref{r:lastpage}}\rfoot{}
+    \renewcommand{\headrulewidth}{0.3pt}
+    \renewcommand{\footrulewidth}{0.3pt}
+    
+    % ===========================================================================
+    % ===========================================================================
+    \begin{document}
+    \thispagestyle{empty}
+    
+    % ===========================================================================
+    \begin{center}
+        {\Large\bf CSC 212: Data Structures and Abstractions}\\
+        \medskip
+        {\Large\bf Fall 2018}\\
+        \medskip
+        {\Large\bf University of Rhode Island}\\
+        \bigskip
+        {\Large\bf Weekly Problem Set \#5}
+    \end{center}
+    
+    Due Thursday 10/25 at the beginning of class. Please turn in neat, and organized, answers hand-written on standard-sized paper \textbf{without any fringe}. At the top of each sheet you hand in, please write your name, and ID.
+    
+    \section{Recurrences}
+    \begin{enumerate}
+        \item Find a closed-form equivalent of the following recurrences:
+        \begin{enumerate} 
+            % http://jeffe.cs.illinois.edu/teaching/algorithms/notes/99-recurrences.pdf (2.1)
+            \item The Towers of Hanoi:
+            $$T(0) = 0; T(n) = 2T(n-1) + 1$$
+            \begin{equation}
+                \begin{split}
+                    T(n) & = 2T(n-1) + 1 \\
+                         & = 2(2T(n-2) + 1) + 1 \\
+                         & = 4T(n-2) + 3 \\
+                         & = 4(2T(n-3) + 1) + 3 \\
+                         & = 8T(n-3) + 7 \\
+                         & = \ldots
+                \end{split}
+            \end{equation}
+            This pattern can be written as follows: $$T(n) = 2^kT(n-k) + (2^k - 1)$$ 
+            Unrolling n times would yield: $T(n) = 2^nT(0) + (2^n - 1)$
+            Plugging in the base case $T(0) = 0$ gives us $T(n) = 2^n - 1$
+        
+            % http://jeffe.cs.illinois.edu/teaching/algorithms/notes/99-recurrences.pdf (2.3)
+            \item Merge Sort:
+            $$T(1) = 1; T(n) = 2T(\frac{n}{2}) + n$$
+            \begin{equation}
+                \begin{split}
+                    T(n) & = 2T(\frac{n}{2}) + n \\
+                         & = 2(2T(\frac{n}{4}) + \frac{n}{2}) + n \\
+                         & = 4T(\frac{n}{4}) + 2n \\
+                         & = 8T(\frac{n}{8}) + 3n \\
+                         & = \ldots
+                \end{split}
+            \end{equation}
+            This pattern can be written as follows: $$T(n) = 2^kT(\frac{n}{2}) + kn$$
+            Becoming trivial when $\frac{n}{2^k} = 1$ or $k = \log_{2}n$
+            Putting it all together: $$T(n) = nT(1) + n \log_{2}n = n \log_{2}n + n$$
+        
+            % https://docs.google.com/document/d/1Z2jiWIVzD9tF6SI6Oxez9M6DYd57HuOYNzvFSCSbufk/edit# (Recurrences > 1 > c)
+            \item Generic:
+            $$T(0) = 1; T(n) = T(n - 1) + 2^n$$
+            \begin{equation}
+                \begin{split}
+                    T(n)   & = T(n - 1) + 2^n \\
+                    T(n-1) & = T(n - 2) + 2^{n-1} + 2^n \\
+                           & = T(n - 3) + 2^{n-2} + 2^{n-1} + 2^n \\
+                           & = T(n - 4) + 2^{n-3} + 2^{n-2} + 2^{n-1} + 2^n\\
+                           & = \ldots \\
+                           & = T(n - k) + \sum_{i=n-k+1}^n(2^i) \\
+                           & = T(n - n) + \sum_{i=1}^n(2^i) \\
+                           & = 1 + 2^{n+1} - 2 = 2^{n+1} - 1 \\
+                \end{split}
+            \end{equation}
+        
+            % https://docs.google.com/document/d/1Z2jiWIVzD9tF6SI6Oxez9M6DYd57HuOYNzvFSCSbufk/edit# (Recurrences > 1 > e)
+            \item Generic:
+            $$T(1) = 1; T(n) = T(\frac{n}{3}) + 1$$
+            \begin{equation}
+                \begin{split}
+                    T(n) & = T(\frac{n}{3}) + 1 \\
+                    T(\frac{n}{3}) & = T((\frac{n}{3}) / 3) + 1 + 1 = T(\frac{n}{9}) + 2 \\
+                    T(\frac{n}{9}) & = T(\frac{n}{27}) + 3 \\
+                    T(\frac{n}{27}) & = T(\frac{n}{81}) + 4 \\
+                    & = T(\frac{n}{3^k}) + k \\
+                    \text{Finding constants: } & \frac{n}{3^k} = 1 \\
+                    & n = 3^k \\
+                    & k = log_3 n \\
+                    & T(n) = 1 + \log_3 n \\
+                \end{split}
+            \end{equation}
+            
+        \end{enumerate}
+    
+    \end{enumerate}
+    \section{Merge Sort} 
+    \begin{enumerate}
+    
+        \item Determine the running-time of merge sort for a) sorted input; b) reverse-ordered input; c) random input; d) all identical input. Justify your answers.\\
+       Merge Sort is guaranteed  $O(n \log n)$ for all cases. The natural variant supports $O(n)$ for already sorted inputs.
+       \item Show the steps to sort the following array using Merge Sort: 6 1 7 11 4 10 2 5 9 3 8\\
+       (((6) (1)) ((7) ((11) (4)))) (((10) ((2) (5))) ((9) ((3) (8))))\\
+((1 6) ((7) (4 11))) (((10) (2 5)) ((9) (3 8)))\\
+((1 6) (4 7 11)) ((2 5 10) (3 8 9))\\
+(1 4 6 7 11) (2 3 5 8 9 10)\\
+1 2 3 4 5 6 7 8 9 10 11
+    \end{enumerate}
+    \section{Unimodal Array}
+    \begin{enumerate}
+        \item Write a recursive algorithm to find the maximum of a weakly unimodal array of integers given the array and its start and end indices.
+\begin{verbatim}
+bool searchUnimodal(int* array, unsigned start, unsigned end)
+{
+    if(start - end == 0)
+        return array[start];
+    unsigned i = (start+end)/2;
+    if(array[i - 1] < array[i] && array[i + 1] > array[i])
+    {
+        return array[i];
+    }
+    else
+    {
+        int max1 = searchUnimodal(array, start, start > i-1 ? start : i-1);
+        int max2 = searchUnimodal(array, end < i + 1 ? end : i+1, end);
+        int maxSub = max1 > max2 ? max1 : max2;
+        return maxSub > array[i] ? maxSub : array[i];
+    }
+}
+\end{verbatim}
+        \item Define and solve a recurrence relation for the number of comparisons for the worst case for your algorithm. Let $c$ be the number of comparisons per function call and T(1) = 1.\\
+        \begin{equation}
+        \begin{split}
+                    T(1) & = 1\\
+                    T(n) & = 2T(\frac{n}{2}) + c \\
+                    & = 2^kT(\frac{n}{2^k}) + c\sum\limits_{i=0}^{k-1} 2^i \\
+                    & = 2^kT(\frac{n}{2^k}) + c(2^k - 1)\\
+                    \text{Finding constants: } & \frac{n}{2^k} = 1 \\
+                    & n = 2^k \\
+                    & k = log_2 n \\
+                    & T(n) = n + cn - c = (1 + c)n - c \\
+                \end{split}
+        \end{equation}
+    \end{enumerate}
+    \label{r:lastpage}
+    \end{document}
+        
+    

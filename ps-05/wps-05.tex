@@ -1,0 +1,72 @@
+\documentclass[11pt]{article}
+
+    \usepackage{listings}
+    \usepackage{fancyhdr}
+    \usepackage[margin=.8in]{geometry}
+    \usepackage{amsmath}
+    \usepackage{enumitem}
+    \usepackage{hyperref}
+    
+    \linespread{1.2}
+    \setlength{\parindent}{0pt}
+    \setlength{\tabcolsep}{15pt}
+    
+    % ===========================================================================
+    % Header / Footer
+    % ===========================================================================
+    
+    \pagestyle{fancy}
+    \lhead{\scriptsize  CSC 212: Data Structures and Abstractions - Fall 2018}\chead{}\rhead{\scriptsize Weekly Problem Set Solutions \#5}
+    \lfoot{}\cfoot{\scriptsize \thepage~of~\pageref{r:lastpage}}\rfoot{}
+    \renewcommand{\headrulewidth}{0.3pt}
+    \renewcommand{\footrulewidth}{0.3pt}
+    
+    % ===========================================================================
+    % ===========================================================================
+    \begin{document}
+    \thispagestyle{empty}
+    
+    % ===========================================================================
+    \begin{center}
+        {\Large\bf CSC 212: Data Structures and Abstractions}\\
+        \medskip
+        {\Large\bf Fall 2018}\\
+        \medskip
+        {\Large\bf University of Rhode Island}\\
+        \bigskip
+        {\Large\bf Weekly Problem Set \#5}
+    \end{center}
+    
+    Due Thursday 10/25 at the beginning of class. Please turn in neat, and organized, answers hand-written on standard-sized paper \textbf{without any fringe}. At the top of each sheet you hand in, please write your name, and ID.
+    
+    \section{Recurrences}
+    \begin{enumerate}
+        \item Find a closed-form equivalent of the following recurrences:
+        \begin{enumerate} 
+            % http://jeffe.cs.illinois.edu/teaching/algorithms/notes/99-recurrences.pdf (2.1)
+            \item The Towers of Hanoi:
+            $$T(0) = 0; T(n) = 2T(n-1) + 1$$
+            \item Merge Sort:
+            $$T(1) = 1; T(n) = 2T(\frac{n}{2}) + n$$
+            \item Generic:
+            $$T(0) = 1; T(n) = T(n - 1) + 2^n$$
+            \item Generic:
+            $$T(1) = 1; T(n) = T(\frac{n}{3}) + 1$$
+        \end{enumerate}
+    
+    \end{enumerate}
+    \section{Merge Sort} 
+    \begin{enumerate}
+    
+        \item Determine the running-time of merge sort for a) sorted input; b) reverse-ordered input; c) random input; d) all identical input. Justify your answers.
+       \item Show the steps to sort the following array using Merge Sort: 6 1 7 11 4 10 2 5 9 3 8
+    \end{enumerate}
+    \section{Unimodal Array}
+    \begin{enumerate}
+        \item Write a recursive algorithm to find the maximum of a weakly unimodal array of integers given the array and its start and end indices.
+        \item Define and solve a recurrence relation for the number of comparisons for the worst case for your algorithm. Let $c$ be the number of comparisons per function call and T(1) = 1.
+    \end{enumerate}
+    \label{r:lastpage}
+    \end{document}
+        
+    
