@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+
+    \usepackage{listings}
+    \usepackage{fancyhdr}
+    \usepackage[margin=.8in]{geometry}
+    \usepackage{amsmath}
+    \usepackage{enumitem}
+    \usepackage{hyperref}
+    
+    \linespread{1.2}
+    \setlength{\parindent}{0pt}
+    \setlength{\tabcolsep}{15pt}
+    
+    % ===========================================================================
+    % Header / Footer
+    % ===========================================================================
+    
+    \pagestyle{fancy}
+    \lhead{\scriptsize  CSC 212: Data Structures and Abstractions - Fall 2018}\chead{}\rhead{\scriptsize Weekly Problem Set Solutions \#6}
+    \lfoot{}\cfoot{\scriptsize \thepage~of~\pageref{r:lastpage}}\rfoot{}
+    \renewcommand{\headrulewidth}{0.3pt}
+    \renewcommand{\footrulewidth}{0.3pt}
+    
+    % ===========================================================================
+    % ===========================================================================
+    \begin{document}
+    \thispagestyle{empty}
+    
+    % ===========================================================================
+    \begin{center}
+        {\Large\bf CSC 212: Data Structures and Abstractions}\\
+        \medskip
+        {\Large\bf Fall 2018}\\
+        \medskip
+        {\Large\bf University of Rhode Island}\\
+        \bigskip
+        {\Large\bf Weekly Problem Set \#7}
+    \end{center}
+    
+    Due Thursday 11/8 at the beginning of class. Please turn in neat, and organized, answers hand-written on standard-sized paper \textbf{without any fringe}. At the top of each sheet you hand in, please write your name, and ID.
+    
+    \begin{enumerate}
+        \item For each of the following please provide the worst case time complexity for a Singly Linked List (SLL), as well as a Doubly Linked List (DLL). 
+    
+    \begin{tabular}{l | c | c | c}
+                 &     & SLL          &  \\ 
+        Function & SLL & without Tail & DLL \\ \hline
+        \verb|int size();| & & & \\ \hline
+        \verb|int at(int);| & & & \\ \hline
+        \verb|int front();| & & & \\ \hline
+        \verb|int back();| & & & \\ \hline
+        \verb|bool empty();| & & & \\ \hline
+        \verb|void clear();| & & & \\ \hline
+        \verb|void set(int, int);| & & & \\ \hline
+        \verb|void push_back(int);| & & & \\ \hline
+        \verb|int pop_back();| & & & \\ \hline
+        \verb|void insert(int, int);| & & & \\ \hline
+        \verb|void erase(int);| & & & \\ \hline
+        \verb|void reverse();| & & & \\ \hline
+    \end{tabular}
+    
+        \item How many pointers are required for a SSL of length n? How many pointers are required for a DLL of length n?
+        
+        \item Describe how to reverse a SLL without a tail.
+        
+        \item What is required to change a linked list into a queue? What about a stack?
+        
+        \item Draw the state of an empty stack and an empty queue after running the following functions for each:
+\begin{verbatim}
+push(1); push(2); push(3); pop(); push(4); pop(); pop(); push(5)
+\end{verbatim}
+    \end{enumerate}
+    \label{r:lastpage}
+    \end{document}
+        
+    
